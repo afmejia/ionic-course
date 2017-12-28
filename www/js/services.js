@@ -12,5 +12,23 @@ angular.module('songhop.services', [])
     o.favorites.unshift(song);
   };
 
+  o.removeSongFromFavorites = function(song, index) {
+    // make sure there's a song to add
+    if (!song) return false;
+
+    // add to favorites array
+    o.favorites.splice(index, 1);
+  };
+
+  return o;
+})
+
+.factory('Recommendations', function($http, SERVER) {
+  var o = {
+    queue: []
+  };
+
+  o.getNextSongs = function() {};
+
   return o;
 });
